@@ -1,0 +1,75 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "John",
+        "lastname": "Doe",
+        "email": "john.doe@example.com",
+        "password": "password123"
+      },
+      {
+        "id": 2,
+        "name": "Jane",
+        "lastname": "Smith",
+        "email": "jane.smith@example.com",
+        "password": "password456"
+      },
+      {
+        "id": 3,
+        "name": "Alice",
+        "lastname": "Johnson",
+        "email": "alice.johnson@example.com",
+        "password": "password789"
+      },
+      {
+        "id": 4,
+        "name": "Bob",
+        "lastname": "Brown",
+        "email": "bob.brown@example.com",
+        "password": "passwordabc"
+      },
+      {
+        "id": 5,
+        "name": "Emily",
+        "lastname": "Davis",
+        "email": "emily.davis@example.com",
+        "password": "passworddef"
+      },
+      {
+        "id": 6,
+        "name": "Michael",
+        "lastname": "Wilson",
+        "email": "michael.wilson@example.com",
+        "password": "passwordghi"
+      },
+      {
+        "id": 7,
+        "name": "Sophia",
+        "lastname": "Martinez",
+        "email": "sophia.martinez@example.com",
+        "password": "passwordjkl"
+      },
+      {
+        "id": 8,
+        "name": "William",
+        "lastname": "Taylor",
+        "email": "william.taylor@example.com",
+        "password": "passwordmno"
+      },
+      {
+        "id": 9,
+        "name": "Olivia",
+        "lastname": "Anderson",
+        "email": "olivia.anderson@example.com",
+        "password": "passwordpqr"
+      },
+      {
+        "id": 10,
+        "name": "James",
+        "lastname": "Thomas",
+        "email": "james.thomas@example.com",
+        "password": "passwordstu"
+      }
+    ]
+  }
+  
