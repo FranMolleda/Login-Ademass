@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { Routes, Route } from 'react-router-dom';
 import Login from './components/Login'
+import Register from './components/Register'
+import RecoveryPassword from './components/RecoveryPassword'
 
 function App() {
 
@@ -22,12 +25,18 @@ function App() {
     }
    getUsers()
   }, [])
-  
-console.log(users);
+
+  console.log(users);
+
   return (
-      <main>
-        <Login users={users}/>
-      </main>
+      <Routes>
+        <Route path='/login' element={<Login users={users}/>} />
+        <Route path='/register' element={<Register setUsers={setUsers} users={users}/>} />
+        <Route path='/recovery_password' element={<RecoveryPassword />} />
+        {/* <Login users={users}/> */}
+        {/* <Register setUsers={setUsers} users={users}/> */}
+        {/* <RecoveryPassword /> */}
+      </Routes>
      
   )
 }
