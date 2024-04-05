@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import './styles/variables.css'
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Login from './components/Login'
@@ -33,9 +34,6 @@ function App() {
         <Route path='/login' element={<Login users={users}/>} />
         <Route path='/register' element={<Register setUsers={setUsers} users={users}/>} />
         <Route path='/recovery_password' element={<RecoveryPassword />} />
-        {/* <Login users={users}/> */}
-        {/* <Register setUsers={setUsers} users={users}/> */}
-        {/* <RecoveryPassword /> */}
       </Routes>
      
   )

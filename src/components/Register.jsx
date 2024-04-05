@@ -42,22 +42,26 @@ const Register = ({ setUsers, users }) => {
     e.preventDefault()
 
     if(name === "" || lastname === "" || email === "" || password === ""){
-        return setErrorAlert("Los campos no pueden estar vacíos");
+        setErrorAlert("Los campos no pueden estar vacíos");
+        return;
     }
 
     if(password !== equalPassword){
-        return setErroEqualPassword("Las contraseñas deben ser iguales");
+        setErroEqualPassword("Las contraseñas deben ser iguales");
+        return;
     }
 
     const user = users.find(user => user.email === email);
 
     if(user){
-       return setErrorAlert("Usuario ya registrado")
+       setErrorAlert("Usuario ya registrado");
+       return;
     }
      /* validateEmail(userEmail,setErrorAlert ) */
      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
      if (!emailPattern.test(email)) {
-      return setErrorAlert("El formato del email no es correcto");
+      setErrorAlert("El formato del email no es correcto");
+      return;
      }
    
     setUsers([...users, newUser])

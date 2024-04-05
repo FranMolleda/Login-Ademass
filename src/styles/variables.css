@@ -1,0 +1,12 @@
+
+:root {
+  --primary-color: #673AB7;
+  --light-primary-color: #D1C4E9;
+  --dark-primary-color: #512DA8;
+  --text-icons-color: #FFFFFF;
+  --accent-color: #607D8B;
+  --primary-text-color: #212121;
+  --secondary-text-color: #757575;
+  --tertiary-text-color: #BDBDBD;
+  --font-family: 'roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
