@@ -1,0 +1,126 @@
+@import url('../styles/variables.css');
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 73vh;
+  }
+  
+  .card {
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 70px 100px;
+    margin: 19% 20px;
+    max-width: 955px;
+    width: 90%;
+  }
+
+
+  .text-color {
+    color: var(--text-icons-color);
+  }
+
+
+  /* Estilos de imágenes */
+  .user-icon {
+    max-width: 110px;
+  }
+
+  .padlock-icon {
+    max-width: 55px;
+  }
+
+  .form-login {
+    display: contents;
+  }
+  
+  /* Estilos para formularios */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-icons-color);
+  }
+  
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .alert {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  /* Estilos para el enlace */
+  p a {
+    color: #673AB7;
+    text-decoration: none;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+  }
+  
+
+/* Boton para ver contraseña */
+.password-input-container {
+    position: relative;
+}
+
+
+.input-password {
+    flex: 1; /* El campo de entrada ocupará todo el espacio disponible */
+    padding-right: 40px; /* Espacio para la imagen */
+}
+
+.input-password::after {
+    content: "";
+    background-image: url('/eye-show.svg'); /* Cambiar a '/eye-off.svg' si se desea mostrar el icono de ojo cerrado por defecto */
+    background-repeat: no-repeat;
+    background-size: 20px; /* Ajustar el tamaño de la imagen según sea necesario */
+    width: 20px; /* Ajustar el tamaño de la imagen según sea necesario */
+    height: 20px; /* Ajustar el tamaño de la imagen según sea necesario */
+    position: absolute;
+    top: 50%;
+    left: 138px; /* Ajustar el espacio entre la imagen y el borde derecho del campo de entrada */
+    transform: translateY(-50%);
+    pointer-events: none; /* Evitar que la imagen sea clickeable */
+}
+
+.password-toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 138px; /* Posición del botón a la derecha */
+    top: 50%; /* Alinear verticalmente */
+    transform: translateY(-50%);
+    width: auto;
+}
+.password-toggle-button img {
+   max-width: 30px;
+}
+
+.boton-login {
+    background: var(--dark-primary-color);
+    color: var(--text-icons-color);
+    font-size: medium;
+    font-weight: 600;
+    padding: 10px 35px;
+    border-radius: 15px;
+    border-color: transparent;
+}

@@ -1,5 +1,6 @@
 import {useState } from "react"
 import {Link} from "react-router-dom"
+import "./Login.css"
 
 
 const Login = ({users}) => {
@@ -26,10 +27,12 @@ const Login = ({users}) => {
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;    
       
         if (userEmail === "" || userPassword === "") {
-           return setErrorAlert("Los campos no pueden estar vacíos");
+           setErrorAlert("Los campos no pueden estar vacíos");
+           return;
         }  
         if (!emailPattern.test(userEmail)) {
-           return setErrorAlert("El formato del email no es correcto");
+            setErrorAlert("El formato del email no es correcto");
+            return;
         } 
         const user = users.find(user => user.email === userEmail && user.password === userPassword);
         
@@ -40,19 +43,19 @@ const Login = ({users}) => {
             setUserPassword("")
         } else {
             setCurrentUser(null)
-            setErrorAlert("No hay ningún usuario registrado con esos datos");
+            setErrorAlert("Correo electrónico o contraseña incorrectos");
         }
         
     };
 
     return ( 
-        <div className="container">
-            <img src="user_white.svg" alt="User icon" />
-            <img src={currentUser ? "padlock_open.svg"  :  "padlock_close.svg"} alt="padlock icon" />
-            {errorAlert ? <div className="alert">{errorAlert}</div> : <div className="alert"></div> }
-            <h1>login</h1>
-                <p>¿No tienes cuenta? <Link to="/register">Regístrate</Link></p>
-            <form onSubmit={handleSubmit} noValidate>
+        <div className="container card">
+            <img src="user_white.svg" alt="User icon" className="user-icon"/>
+            <img src={currentUser ? "padlock_open.svg"  :  "padlock_close.svg"} alt="padlock icon" className="padlock-icon"/>
+            {errorAlert && <div className="alert">{errorAlert}</div>  }
+            <h1 className="text-color">login</h1>
+                <p className="text-color">¿No tienes cuenta? <Link to="/register">Regístrate</Link></p>
+            <form onSubmit={handleSubmit} noValidate className="form-login">
                 <div className="form-group">
                     <label htmlFor="userEmail">Email</label>
                     <input 
@@ -65,15 +68,25 @@ const Login = ({users}) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="userPassword">Contraseña</label>
+                    <div className="password-input-container">
                     <input 
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="userPassword"
                     value={userPassword}
                     id="userPassword"
                     onChange={(e) => handleChangePassword(e)}
+                    className="input-password"
                     />
+                    <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="password-toggle-button"
+                    >
+                    <img src={showPassword ? "/eye-off.svg" : "/eye-show.svg"} alt="show password button" />
+                    </button>
+                    </div>
                 </div>
-                <input type="submit" value="Acceder"/>
+                <input type="submit" value="Acceder" className="boton-login"/>
             </form>
                 <Link to="/recovery_password">¿He olvidado mi contraseña?</Link>
         </div>
