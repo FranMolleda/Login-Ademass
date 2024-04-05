@@ -1,5 +1,8 @@
 import { useState} from "react"
 import { useNavigate } from "react-router-dom";
+import {Link} from "react-router-dom"
+import ("../styles/main.css")
+import ("./RecoveryPassword.css")
 
 
 const RecoveryPassword = () => {
@@ -23,7 +26,11 @@ const RecoveryPassword = () => {
            return setErrorAlert("Los campos no pueden estar vacíos");
         }  */ 
         if (!emailPattern.test(userEmail)) {
-           return setErrorAlert("El formato del email no es correcto");
+            setErrorAlert("El formato del email no es correcto");
+           setTimeout(() => {
+            setErrorAlert("")
+        }, 2000);
+        return
         } 
         
         
@@ -36,9 +43,10 @@ const RecoveryPassword = () => {
         }, 2000);
     };
     return ( 
-        <div>
-        <p>Ingrese su correo electrónico para restablecer su contraseña</p>
-        <form onSubmit={handleSubmit} noValidate>
+        <div className="container">
+        <div className="card small">
+        <p className="text-recovery">Recupera tu contraseña introduciendo tu dirección de correo electrónico</p>
+        <form onSubmit={handleSubmit} noValidate className="form-login">
                 <div className="form-group">
                     <label htmlFor="userEmail">Email</label>
                     <input 
@@ -47,12 +55,17 @@ const RecoveryPassword = () => {
                     value={userEmail}
                     id="userEmail"
                     onChange={(e)=>handleChangeEmail(e)}
+                    className="input-email"
                     />
                 </div>
-                <input type="submit" value="Recuperar contraseña"/>
+                {errorAlert && <div className="alert">{errorAlert}</div> }
+                {confirmAlert && <div className="confirm">{confirmAlert}</div> }
+                <input type="submit" value="Recuperar contraseña" className="button-lr"/>
             </form>
-            {errorAlert && <div className="alert">{errorAlert}</div> }
-            {confirmAlert && <div className="alert">{confirmAlert}</div> }
+            <div className="login-link">
+      <Link  to="/login">¡Ya me acuerdo!</Link>
+        </div>
+        </div>
         </div>
      );
 }

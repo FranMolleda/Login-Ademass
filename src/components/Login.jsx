@@ -1,6 +1,7 @@
 import {useState } from "react"
 import {Link} from "react-router-dom"
 import "./Login.css"
+import "../styles/main.css"
 
 
 const Login = ({users}) => {
@@ -49,46 +50,48 @@ const Login = ({users}) => {
     };
 
     return ( 
-        <div className="container card">
-            <img src="user_white.svg" alt="User icon" className="user-icon"/>
-            <img src={currentUser ? "padlock_open.svg"  :  "padlock_close.svg"} alt="padlock icon" className="padlock-icon"/>
-            {errorAlert && <div className="alert">{errorAlert}</div>  }
-            <h1 className="text-color">login</h1>
+        <div className="container">
+        <div className="card">
+                <img src="user_white.svg" alt="User icon" className="user-icon"/>
+                <img src={currentUser ? "padlock_open.svg"  :  "padlock_close.svg"} alt="padlock icon" className="padlock-icon"/>
+                {errorAlert && <div className="alert">{errorAlert}</div>}
+                <h1 className="text-color">Login</h1>
                 <p className="text-color">¿No tienes cuenta? <Link to="/register">Regístrate</Link></p>
-            <form onSubmit={handleSubmit} noValidate className="form-login">
-                <div className="form-group">
-                    <label htmlFor="userEmail">Email</label>
-                    <input 
-                    type="email"
-                    name="userEmail"
-                    value={userEmail}
-                    id="userEmail"
-                    onChange={(e)=>handleChangeEmail(e)}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="userPassword">Contraseña</label>
-                    <div className="password-input-container">
-                    <input 
-                    type={showPassword ? "text" : "password"}
-                    name="userPassword"
-                    value={userPassword}
-                    id="userPassword"
-                    onChange={(e) => handleChangePassword(e)}
-                    className="input-password"
-                    />
-                    <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="password-toggle-button"
-                    >
-                    <img src={showPassword ? "/eye-off.svg" : "/eye-show.svg"} alt="show password button" />
-                    </button>
+                <form onSubmit={handleSubmit} noValidate className="form-login">
+                    <div className="form-group">
+                        <label htmlFor="userEmail">Email</label>
+                        <input 
+                        type="email"
+                        name="userEmail"
+                        value={userEmail}
+                        id="userEmail"
+                        onChange={(e)=>handleChangeEmail(e)}
+                        />
                     </div>
-                </div>
-                <input type="submit" value="Acceder" className="boton-login"/>
-            </form>
-                <Link to="/recovery_password">¿He olvidado mi contraseña?</Link>
+                    <div className="form-group">
+                        <label htmlFor="userPassword">Contraseña</label>
+                        <div className="password-input-container">
+                        <input 
+                        type={showPassword ? "text" : "password"}
+                        name="userPassword"
+                        value={userPassword}
+                        id="userPassword"
+                        onChange={(e) => handleChangePassword(e)}
+                        className="input-password"
+                        />
+                        <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="password-toggle-button"
+                        >
+                        <img src={showPassword ? "/eye-off.svg" : "/eye-show.svg"} alt="show password button" />
+                        </button>
+                        </div>
+                    </div>
+                    <input type="submit" value="Acceder" className="button-lr"/>
+                </form>
+                    <Link to="/recovery_password">¿He olvidado mi contraseña?</Link>
+        </div>
         </div>
      );
 }
