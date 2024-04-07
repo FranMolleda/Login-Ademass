@@ -1,0 +1,179 @@
+@import url('../styles/variables.css');
+
+
+/*Generales */
+
+.container {
+  display: flex;
+  justify-content: center; /* Centra verticalmente el contenido */
+  align-items: center;
+  height: 100vh; /* Toma el 100% del alto de la ventana */
+  width: 30vw;
+}
+
+.card {
+  position: relative;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 25% 15%;
+  max-width: 1200px;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*Iconos */
+
+.user-icon {
+  max-width: 110px;
+}
+
+/* Texto y enlaces */
+
+.text-color {
+  color: var(--text-icons-color);
+}
+
+a {
+  color: var(--text-icons-color);;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  color: var(--dark-primary-color)
+}
+
+.login-link {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Formularios */
+
+.form-container {
+  display: contents;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-icons-color);
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  flex: 1; /* El campo de entrada ocupará todo el espacio disponible */
+  padding: 10px;
+  width: 100%; /* Ancho del input al 100% */
+  border: none;
+  border-radius: 4px;
+}
+
+.button-lr {
+  background: var(--dark-primary-color);
+  color: var(--text-icons-color);
+  font-size: medium;
+  font-weight: 600;
+  padding: 10px 35px;
+  border-radius: 15px;
+  border-color: transparent;
+}
+
+/*Botón para ver contraseña */
+
+.password-input-container {
+  position: relative;
+}
+
+.input-password::after {
+  content: "";
+  background-image: url('/eye-show.svg'); /* Cambiar a '/eye-off.svg' si se desea mostrar el icono de ojo cerrado por defecto */
+  background-repeat: no-repeat;
+  background-size: 20px; /* Ajustar el tamaño de la imagen según sea necesario */
+  width: 20px; /* Ajustar el tamaño de la imagen según sea necesario */
+  height: 20px; /* Ajustar el tamaño de la imagen según sea necesario */
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Ajustar el espacio entre la imagen y el borde derecho del campo de entrada */
+  transform: translateY(-50%);
+  pointer-events: none; /* Evitar que la imagen sea clickeable */
+}
+
+.password-toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: -8px;
+  top: 55%;
+  transform: translateY(-50%);
+  width: auto;
+}
+
+.password-toggle-button img {
+ max-width: 30px;
+}
+
+/* Alertaas */
+
+.alert {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #e5908a;
+  color: #fff;
+}
+
+.confirm {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #4dcc65;
+  color: #fff;
+}
+
+/* Media queries */
+
+
+@media (max-width: 1199px) {
+  .container {
+    width: 40vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 90vw;
+    text-align: center;
+  }
+
+ .password-toggle-button img {
+    max-width: 20px; /* Reducir el tamaño de la imagen del botón en dispositivos pequeños */
+ }
+}
