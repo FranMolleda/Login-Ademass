@@ -1,5 +1,7 @@
 @import url('../styles/variables.css');
 
-  .padlock-icon {
-    max-width: 55px;
-  }
+/*Iconos */
+
+.padlock-icon {
+   max-width: 55px;
+}
