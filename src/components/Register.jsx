@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { validate } from "../utils/emailUtils";
+import { validate } from "../utils/validationUtils";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../styles/main.css";
@@ -49,11 +49,22 @@ const Register = ({ setUsers, users }) => {
     if (!validate.emptyFields(name, lastname, email, password, equalPassword)) {
       setErrorAlert("Los campos no pueden estar vacíos");
       return;
+    }else{
+      setErrorAlert("")
     }
 
     if (!validate.emailPattern(email)) {
       setErrorAlert("El formato del email no es válido");
       return;
+    }else{
+      setErrorAlert("")
+    }
+
+    if (!validate.passwordPattern(password)) {
+      setErrorAlert("La contraseña debe tener al menos una mayúscula, una minúscula, un carácter especial y ser de al menos 8 caracteres de longitud");
+      return
+    } else {
+      setErrorAlert("");
     }
 
     if (password !== equalPassword) {
@@ -68,6 +79,8 @@ const Register = ({ setUsers, users }) => {
     if (user) {
       setErrorAlert("Usuario ya registrado");
       return;
+    }else{
+      setErrorAlert("")
     }
 
     setUsers([...users, newUser]);

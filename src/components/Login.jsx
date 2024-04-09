@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { validate } from "../utils/emailUtils";
+import { validate } from "../utils/validationUtils";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import "../styles/main.css";
