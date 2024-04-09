@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { validate } from "../utils/emailUtils";
+import { validate } from "../utils/validationUtils";
 import { Link } from "react-router-dom";
 import("../styles/main.css");
 import("./RecoveryPassword.css");
